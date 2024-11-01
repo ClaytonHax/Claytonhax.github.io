@@ -1,0 +1,393 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #222;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.navbar img {
+    max-width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+
+#scramble {
+    font-size: 1.5em;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    flex-grow: 1;
+    color: #f0f0f0;
+}
+
+h2 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 260px);
+}
+
+#timer {
+    font-size: 6rem;
+    color: #f0f0f0;
+    margin: 0;
+    transition: color 0.3s, transform 0.2s;
+    font-weight: 700;
+}
+
+#timer.running {
+    color: #ff0000;
+}
+
+.instructions {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    color: #ccc;
+    font-weight: 400;
+}
+
+.footer {
+    display: flex;
+    background-color: #2a2a2a;
+    border-top: 1px solid #444;
+    height: 150px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.stats-display {
+    flex: 1;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #333;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+  
+.stats-display h4 {
+    margin: 5px 0;
+    font-weight: 500;
+    color: #fff;
+}
+
+.divider {
+    width: 1px;
+    background-color: #444;
+    margin: 0;
+    height: 60%;
+    align-self: center;
+}
+
+.times-display {
+    flex: 2;
+    text-align: left;
+    border-left: 1px solid #ccc;
+    overflow-y: auto;
+    padding-left: 10px;
+}
+
+.times-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.time-entry {
+    background-color: #444;
+    border: 1px solid #555;
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.time-entry:hover {
+    background-color: #555;
+}
+
+h3, h4 {
+    margin: 0.2rem 0;
+    color: #f0f0f0;
+    font-weight: 500;
+}
+
+h4 {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+h4.highlight {
+    color: #4CAF50;
+}
+
+#time-options {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    z-index: 1000;
+    display: none;
+    max-width: 250px;
+}
+
+#time-options button {
+    background-color: #FF5722;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+#time-options button:hover {
+    background-color: #ff69b4;
+}
+
+#selected-scramble {
+    font-size: 14px;
+    margin-bottom: 10px;
+    white-space: normal;
+}
+
+.time-options.visible {
+    top: calc(100% - 180px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hidden {
+    display: none;
+}
+
+#settings-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    display: none;
+}
+
+#settings-panel.visible {
+    display: block;
+}
+
+#settings-btn {
+    background-color: #FF5722;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+#settings-btn:hover {
+    background-color: #ff69b4;
+}
+
+#close-settings {
+    background-color: #ff2222;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+#close-settings:hover {
+    background-color: #600000;
+}
+
+/* Donation button styling */
+.donate-button {
+    display: inline-block;
+    background-color: #ff5f5f;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.3s;
+    margin-top: -1px;
+}
+
+.donate-button:hover {
+    background-color: #ff3b3b;
+    box-shadow: 0 4px 15px rgba(255, 91, 91, 0.4);
+}
+
+/* Social icons container */
+.social-container {
+    display: flex;
+    gap: 15px; /* Space between icons */
+    margin-top: 20px;
+    justify-content: center; /* Centering icons */
+}
+
+/* Social icon styling */
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-size: cover;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+.social-icon.discord {
+    background-image: url('https://support.discord.com/hc/user_images/01HB3E42G3X1VHT09EE08HZC6H.png'); /* Replace with actual icon URL */
+}
+
+.social-icon.youtube {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/270/270834.png'); /* Replace with actual icon URL */
+}
+
+/* Hover effect for social icons */
+.social-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+/* Container for the checkbox */
+.checkbox-container {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    gap: 10px; /* Space between checkbox label and input */
+    margin: 20px 0; /* Space above and below the checkbox */
+    cursor: pointer; /* Change cursor to pointer for hover effect */
+}
+
+/* Hide the default checkbox */
+.custom-checkbox {
+    position: absolute;
+    opacity: 0; /* Hide the checkbox */
+    cursor: pointer; /* Change cursor to pointer */
+    height: 0; /* Set height to 0 */
+    width: 0; /* Set width to 0 */
+}
+
+/* Custom checkbox design */
+.checkmark {
+    position: relative;
+    height: 25px; /* Height of the checkbox */
+    width: 25px; /* Width of the checkbox */
+    background: #f0f0f0; /* Default background color */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 
+        4px 4px 8px rgba(0, 0, 0, 0.1),
+        -4px -4px 8px rgba(255, 255, 255, 0.9); /* Shadow effect */
+    transition: all 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Hover effect */
+.checkbox-container:hover .checkmark {
+    box-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.1),
+        -2px -2px 4px rgba(255, 255, 255, 0.9); /* Shadow on hover */
+}
+
+/* Checked state */
+.custom-checkbox:checked ~ .checkmark {
+    background: #4CAF50; /* Background color when checked */
+    box-shadow: inset 
+        2px 2px 4px rgba(0, 0, 0, 0.1),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.1); /* Inset shadow when checked */
+}
+
+/* Checkmark icon */
+.checkmark:after {
+    content: ''; /* Content for the checkmark */
+    position: absolute;
+    display: none; /* Initially hidden */
+    left: 9px; /* Position of the checkmark */
+    top: 5px; /* Position of the checkmark */
+    width: 6px; /* Width of the checkmark */
+    height: 12px; /* Height of the checkmark */
+    border: solid white; /* Color of the checkmark */
+    border-width: 0 2px 2px 0; /* Border width for checkmark */
+    transform: rotate(45deg); /* Rotate to make a checkmark shape */
+}
+
+/* Show checkmark when checked */
+.custom-checkbox:checked ~ .checkmark:after {
+    display: block; /* Show the checkmark when checked */
+}
+
+/* Label styling */
+.checkbox-label {
+    font-family: Arial, sans-serif; /* Font family for the label */
+    font-size: 16px; /* Font size for the label */
+    color: #ffffff; /* Text color */
+    user-select: none; /* Prevent text selection */
+    text-align: left; /* Align text to the left */
+}
+
+/* Focus state */
+.custom-checkbox:focus ~ .checkmark {
+    box-shadow: 
+        0 0 0 2px rgba(76, 175, 80, 0.3),
+        4px 4px 8px rgba(0, 0, 0, 0.1),
+        -4px -4px 8px rgba(255, 255, 255, 0.9); /* Focus outline effect */
+}
+
+/* Header for settings */
+.settings-header {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between title and close button */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 20px; /* Add space below the header */
+}
+
+#close-settings {
+    background: none; /* Remove default button styles */
+    border: none; /* Remove default button border */
+    cursor: pointer; /* Change cursor to pointer */
+}

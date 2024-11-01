@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cube Timer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+</head>
+<body>
+  <div class="navbar">
+    <img src="logo.png" alt="Logo">
+    <div id="scramble">Scramble: Loading...</div>
+  </div>
+
+  <button id="settings-btn" style="position: absolute; top: 10px; right: 10px;">⚙️</button>
+ 
+  <div class="timer-container">
+    <div id="timer">00:00.00</div>
+    <div class="instructions">Hold Spacebar for 0.5 seconds to start the timer.</div>
+  </div>
+
+  <div class="footer">
+    <div class="stats-display">
+      <h4 id="best-time">Best Time: N/A</h4>
+      <h4 id="average">Session Average: N/A</h4>   
+      <h4 id="average-of-5">Average of 5: N/A</h4>
+    </div>
+    <div class="divider"></div>
+    <div class="times-display" id="times">
+      <h3 id="times-header">Times:</h3>
+      <div class="times-list"></div>
+    </div>
+  </div>
+
+  
+  <div id="settings-panel" class="hidden">
+    <div class="settings-header">
+        <h3>Settings</h3>
+        <button id="close-settings">✖</button>
+    </div>
+
+    <label for="scramble-length">Scramble Length:</label>
+    <input type="range" id="scramble-length" min="1" max="35" value="20">
+    <span id="scramble-length-value">20</span>
+
+    <!-- Added Checkbox -->
+    <label class="checkbox-container">
+        <span class="checkbox-label">Mouse Timer</span>
+        <input type="checkbox" class="custom-checkbox" id="myCheckbox">
+        <span class="checkmark"></span>
+    </label>
+
+    <div class="social-container">
+        <a href="https://payhip.com/b/txRa2" target="_blank" class="donate-button">💖 Donate</a>
+        <a href="https://discord.gg/MMBR4932VT" target="_blank" class="social-icon discord" aria-label="Discord"></a>
+        <a href="https://youtube.com/@deletedcuber" target="_blank" class="social-icon youtube" aria-label="YouTube"></a>
+    </div>
+</div>
+
+
+  <div id="time-options" class="hidden">
+    <h3>Options</h3>
+    <div id="selected-scramble"></div> 
+    <button id="add-2-seconds">Add 2 Seconds</button>
+    <button id="delete-time">Delete Time</button>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
